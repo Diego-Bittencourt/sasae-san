@@ -1,0 +1,26 @@
+@import './base.css';
+@import '../index.css';
+
+#app {
+
+  font-weight: normal;
+}
+
+a {
+  text-decoration: none;
+  transition: 0.4s;
+}
+
+input,
+select {
+  /* all: unset; */
+  outline: none;
+}
+
+@media (hover: hover) {
+  a:hover {
+    background-color: hsla(160, 100%, 37%, 0.2);
+  }
+}
+
+
