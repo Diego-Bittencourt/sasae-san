@@ -1,6 +1,6 @@
 <template>
   <TheHeader  />
-  <main class="container w-screen p-6 bg-black h-screen">
+  <main class="w-screen p-6 bg-black h-screen">
     <UserInput />
   </main>
 </template>
@@ -13,8 +13,5 @@ import { authStore } from './stores/auth'
 
 //import auth store
 const auth = authStore()
-
-
-
 
 </script>
