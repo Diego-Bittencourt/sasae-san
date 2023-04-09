@@ -4,7 +4,7 @@ export const authStore = defineStore({
   id: 'auth',
   state: () => ({
     //store
-    gptAnswser: '',
+    gptAnswser: {},
     isModalOn: false
   }),
   getters: {
@@ -23,7 +23,7 @@ export const authStore = defineStore({
     hideModal() {
       this.isModalOn = false
     },
-    fetchGpt(userInput) {
+    async fetchGpt(userInput) {
       const apiKey = import.meta.env.VITE_GPT_KEY
 
 
@@ -45,11 +45,15 @@ export const authStore = defineStore({
         })
       } //end of otions object
 
-      fetch('https://api.openai.com/v1/chat/completions', options)
+      await fetch('https://api.openai.com/v1/chat/completions', options)
       .then(response => response.json())
       .then(response => {
-        console.log(response)
-        this.gptAnswer = response
+        console.log('the response here>>>', response)
+        this.gptAnswer = response.choices[0].message.content
+        console.log('the store is >>>', this.gptAnswser)
+      })
+      .then(() => {
+        this.showModal() 
       })
 
     },

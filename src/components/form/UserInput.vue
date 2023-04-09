@@ -74,7 +74,7 @@ const goToStories = () => {
 
 .tabs-enter-active,
 .tabs-leave-active {
-    transition: all 0.5s ease-in-out;
+    transition: all 0.2s ease-in-out;
 }
 
 </style>

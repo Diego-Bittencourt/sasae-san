@@ -15,7 +15,7 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, watch } from 'vue'
 import { authStore } from '../../stores/auth';
 
 //storing the auth store in a variable
@@ -64,20 +64,17 @@ const emitData = async () => {
     console.log(data)
 
     await auth.fetchGpt(additionalData.value)
-        .then(() => auth.showModal)
 
-}
 
+} 
+
+console.log(auth.gptAnswer)
 //computed to return the correct message
+
 const receivedMessage = computed(() => {
-    const answer = auth.getGptAnswer.choices || [{
-        message: {
-            "role": "assistant",
-            "content": "\n\nHello there, how may I assist you today?",
-        }
-    },]
-    const [choice] = answer
-    return choice.message.content
+        return auth.gptAnswer
+    
+
 })
 
 </script>
