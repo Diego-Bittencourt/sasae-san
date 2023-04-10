@@ -1,18 +1,19 @@
 <template>
     <div v-if="showModal"
-    class="top-0 left-0 fixed z-50 w-screen h-screen bg-black bg-opacity-80 flex flex-col justify-center content-center transition-opacity duration-300">
-    <div class="max-w-5xl self-center modal-window">
-        
-        <color-gradient>
-            <Transition name="modal-opening" appear>
+        class="top-0 left-0 fixed z-50 w-screen h-screen bg-black bg-opacity-80 flex flex-col justify-center content-center transition-opacity duration-300">
+        <div class="max-w-5xl self-center modal-window">
 
-                    <div v-if="showModal" class="text-3xl text-white text-center p-8 bg-black overflow-hidden">{{ auth.gptAnswer }}</div>
+            <color-gradient>
+                <Transition name="modal-opening" appear>
+
+                    <div v-if="showModal" class="text-3xl text-white text-center p-8 bg-black overflow-hidden">{{
+                        auth.gptAnswer }}</div>
 
                 </Transition>
-                </color-gradient>
-                <base-button @click="hideModal" class="mt-10">Close</base-button>
-            </div>
+            </color-gradient>
+            <base-button @click="hideModal" class="mt-10">Close</base-button>
         </div>
+    </div>
 </template>
 
 <script setup>
@@ -25,8 +26,6 @@ const props = defineProps(['message'])
 
 const hideModal = () => {
     auth.hideModal()
-    
-    
 }
 
 const showModal = computed(() => {

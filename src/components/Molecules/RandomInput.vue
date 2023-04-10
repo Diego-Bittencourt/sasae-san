@@ -61,8 +61,6 @@ const emitData = async () => {
     }
 
     //console the user's input for testing
-    console.log(data)
-
     await auth.fetchGpt(additionalData.value)
 
 
